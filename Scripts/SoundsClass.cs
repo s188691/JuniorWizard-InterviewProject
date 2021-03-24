@@ -6,6 +6,6 @@ using UnityEngine;
 public class SoundsClass
 {
     public string name;
-    public bool play;
-    public bool playable;   
+    public bool playable; 
+    public AudioClip spellSFX;  
 }
