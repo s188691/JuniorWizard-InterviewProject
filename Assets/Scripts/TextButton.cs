@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class TextButton : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Animator animator;
+    public float showtime = 3f;
+
+    public void ShowThreeSecText()
     {
-        
+        StartCoroutine(ShowThreeSecCoroutine());
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator ShowThreeSecCoroutine()
     {
-        
+        animator.Play("ThreeSecTextAnimShow");
+        yield return new WaitForSeconds(showtime);
+        animator.Play("ThreeSecTextAnimHide");
     }
+
+
 }
