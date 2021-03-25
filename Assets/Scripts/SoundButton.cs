@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class Main : MonoBehaviour
+public class SoundButton : MonoBehaviour
 {
     
     public SoundsClass spellOne;
@@ -14,6 +14,8 @@ public class Main : MonoBehaviour
     public SoundsClass[] spellsFiltered;
     public int randomSpell;
     public AudioSource audioSource;
+    public float buttonCooldown = 3f;//To be tweaked
+    public Button spellButton;
     
     // Start is called before the first frame update
     void Start()
@@ -30,42 +32,45 @@ public class Main : MonoBehaviour
         spellsArray[0] = spellOne;
         spellsArray[1] = spellTwo;
         spellsArray[2] = spellThree;
-        
+    }
+    
+    AudioClip RandomClip()
+    {
+        return spellsFiltered[randomSpell].spellSFX;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void SpellButton()
     {
-
+        StartCoroutine(ButtonCooldownCoroutine());
+        
         spellsFiltered = spellsArray.Where(s => s.playable).ToArray();
 
         try
         {
-        randomSpell = Random.Range(0, spellsFiltered.Length);
+            randomSpell = Random.Range(0, spellsFiltered.Length);
         }
         catch (System.IndexOutOfRangeException)
         {
             Debug.Log("All spells are off");
         }
-        
-    }
-    
-    AudioClip RandomClip()
-    {
-    return spellsFiltered[randomSpell].spellSFX;
-    }
 
-    public void SpellButton()
-    {
         try
         {
-        audioSource.PlayOneShot(RandomClip());
+            audioSource.PlayOneShot(RandomClip());
         } 
         catch (System.IndexOutOfRangeException)
         {
-        Debug.Log("All spells are off");
+            Debug.Log("All spells are off");
         }
     }
+
+    private IEnumerator ButtonCooldownCoroutine()
+    {
+        spellButton.GetComponent<Button>().interactable = false;
+        yield return new WaitForSeconds(buttonCooldown);
+        spellButton.GetComponent<Button>().interactable = true;
+    }
+
 
     public void SpellOneToggle(bool toggleBool)
     {
