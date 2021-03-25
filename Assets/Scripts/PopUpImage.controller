@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-2962400770233849637
+--- !u!1102 &-5595956750496702875
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThreeSecTextHide
+  m_Name: PopUpAnim
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 754095831788a944eb9a6a2e55c9625e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 7d055a941d0e06249ba43fc40ff5c45b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -32,13 +32,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThreeSecText
+  m_Name: PopUpImage
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 150339644912154072}
+    m_StateMachine: {fileID: 798145177448310746}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -48,7 +48,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1107 &150339644912154072
+--- !u!1107 &798145177448310746
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -58,32 +58,32 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 7579209925081650062}
-    m_Position: {x: 200, y: 0, z: 0}
+    m_State: {fileID: -5595956750496702875}
+    m_Position: {x: 0, y: 180, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 7052063341103452041}
-    m_Position: {x: 235, y: 65, z: 0}
+    m_State: {fileID: 6260296269723688376}
+    m_Position: {x: 350, y: 60, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -2962400770233849637}
-    m_Position: {x: 270, y: 130, z: 0}
+    m_State: {fileID: 4330335710032237414}
+    m_Position: {x: 350, y: 120, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 50, y: 20, z: 0}
+  m_AnyStatePosition: {x: 50, y: 70, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 7579209925081650062}
---- !u!1102 &7052063341103452041
+  m_DefaultState: {fileID: 4330335710032237414}
+--- !u!1102 &4330335710032237414
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThreeSecTextShow
+  m_Name: PopUpAnimHide
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -96,20 +96,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: f76d1479a6e8bfe4095cda95223be3af, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4772cbe6fd797ac46a9f715e8f091103, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &7579209925081650062
+--- !u!1102 &6260296269723688376
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ThreeSecText
+  m_Name: PopUpAnimShow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -122,7 +122,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8304268f5afb65e4188ee87e9c1672c1, type: 2}
+  m_Motion: {fileID: 7400000, guid: d350cf456f4bb25479cf9f8ab1431415, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
