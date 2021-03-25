@@ -14,9 +14,9 @@ public class TextButton : MonoBehaviour
 
     private IEnumerator ShowThreeSecCoroutine()
     {
-        animator.Play("ThreeSecTextAnimShow");
+        animator.Play("ThreeSecTextShow");
         yield return new WaitForSeconds(showtime);
-        animator.Play("ThreeSecTextAnimHide");
+        animator.Play("ThreeSecTextHide");
     }
 
 
