@@ -14,8 +14,9 @@ public class SoundButton : MonoBehaviour
     public SoundsClass[] spellsFiltered;
     public int randomSpell;
     public AudioSource audioSource;
-    public float buttonCooldown = 3f;//To be tweaked
+    public float buttonCooldown = 2f;
     public Button spellButton;
+    public Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -67,7 +68,9 @@ public class SoundButton : MonoBehaviour
     private IEnumerator ButtonCooldownCoroutine()
     {
         spellButton.GetComponent<Button>().interactable = false;
+        animator.Play("SpellsCdTextShow");
         yield return new WaitForSeconds(buttonCooldown);
+        animator.Play("SpellsCdTextHide");
         spellButton.GetComponent<Button>().interactable = true;
     }
 
