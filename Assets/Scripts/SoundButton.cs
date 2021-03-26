@@ -42,7 +42,6 @@ public class SoundButton : MonoBehaviour
 
     public void SpellButton()
     {
-        StartCoroutine(ButtonCooldownCoroutine());
         
         spellsFiltered = spellsArray.Where(s => s.playable).ToArray();
 
@@ -53,6 +52,12 @@ public class SoundButton : MonoBehaviour
         catch (System.IndexOutOfRangeException)
         {
             Debug.Log("All spells are off");
+        }
+        
+        if (spellsFiltered != null && spellsFiltered.Length != 0){
+            StartCoroutine(ButtonCooldownCoroutine());
+        } else {
+            StartCoroutine(SpellsOffCoroutine());
         }
 
         try
@@ -67,11 +72,18 @@ public class SoundButton : MonoBehaviour
 
     private IEnumerator ButtonCooldownCoroutine()
     {
-        spellButton.GetComponent<Button>().interactable = false;
+        spellButton.interactable = false;
         animator.Play("SpellsCdTextShow");
         yield return new WaitForSeconds(buttonCooldown);
         animator.Play("SpellsCdTextHide");
-        spellButton.GetComponent<Button>().interactable = true;
+        spellButton.interactable = true;
+    }
+
+    private IEnumerator SpellsOffCoroutine()
+    {
+        animator.Play("SpellsOffShow");
+        yield return new WaitForSeconds(1f);
+        animator.Play("SpellsOffHide");
     }
 
 
